@@ -1,0 +1,7 @@
+{ pkgs, ... }:
+
+{
+  programsfish = {
+      enable = true;
+  };
+}
