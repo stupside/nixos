@@ -2,13 +2,15 @@
 
 { 
   imports =
-    (import ../modules/programs) ++
-    (import ../modules/services);
+    (import ./modules/programs) ++
+    (import ./modules/services);
 
   home = {
 
     username = "${user}";
     homeDirectory = "/home/${user}";
+    
+    stateVersion = "22.11";
 
     packages = with pkgs; [
     ];
@@ -20,10 +22,8 @@
 
   gtk = {
     enable = true;
-    theme = {
-        font = {
-            name = "JetBrains Mono Medium";
-        };
+    font = {
+      name = "JetBrains Mono Medium";
     };
-  }
+  };
 }

@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+
+  imports = [(import ./hardware-configuration.nix)];
+
   # Boot
   boot = {
     loader = {
@@ -19,6 +22,9 @@
   };
 
   hardware = {
+
+    # Audio
+    pulseaudio.enable = false;
 
     # OpenGL
     opengl = {
@@ -48,7 +54,7 @@
     };
   };
 
-  envrionnement.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     docker-compose
   ];
 }

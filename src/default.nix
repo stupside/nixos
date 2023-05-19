@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, user }: 
+{ nixpkgs, home-manager, user, ... }: 
 
 let
   system = "x86_64-linux";
@@ -11,7 +11,7 @@ let
 in 
 {
 
-  hostname = lib.nixosSystem {
+  hostname = nixpkgs.lib.nixosSystem {
     inherit system;
 
     specialArgs = { inherit pkgs user; };

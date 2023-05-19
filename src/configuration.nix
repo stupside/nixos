@@ -117,6 +117,6 @@
         brightnessctl
     ];
   
-    environment.shells = with pkgs; [ fish ];
+    shells = with pkgs; [ fish ];
   };
 }

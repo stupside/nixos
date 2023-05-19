@@ -11,14 +11,15 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = "x86_64-linux";
-      user = "Xonery";
+      user = "xonery";
     in {
 
     nixosConfigurations = (
       import ./src {
         inherit user;
 	      inherit nixpkgs;
+        inherit home-manager;
       }
-    )
+    );
+  };
 }
