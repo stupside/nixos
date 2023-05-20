@@ -16,4 +16,7 @@
       };
     };
   };
+
+  environment.variables.EDITOR = "nvim";
+  environment.variables.VISUAL = "nvim";
 }

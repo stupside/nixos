@@ -1,4 +1,3 @@
 [
     ./firefox.nix
-    ./kitty.nix
 ]

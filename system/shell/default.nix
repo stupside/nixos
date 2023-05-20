@@ -1,5 +1,5 @@
 [
     ./fish.nix
     ./git.nix
-    ./neovim.nix
+    ./nvim.nix
 ]
