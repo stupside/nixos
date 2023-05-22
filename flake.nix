@@ -12,12 +12,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
   };
 
-  outputs = { nixpkgs, /* Flakes */ home-manager, hyprland, ... } @inputs :
+  outputs = { nixpkgs, /* Flakes */ home-manager, ... } @inputs :
     let
       system = "x86_64-linux";
 
@@ -55,8 +56,6 @@
                 {
                   imports = [
                     ./home
-                    hyprland.homeManagerModules.default
-                    {wayland.windowManager.hyprland.enable = true;}
                   ];
                 };
               };

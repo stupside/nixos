@@ -76,7 +76,6 @@
 
   # OpenGL
   hardware.opengl = {
-    # Set by default by hyprland
     enable = true;
   };
 
@@ -96,7 +95,6 @@
 
   # Security
   security = {
-    # Set by default by hyprland
     polkit.enable = true;
     rtkit.enable = true;
   };

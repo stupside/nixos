@@ -1,12 +1,12 @@
-{ pkgs, hyprland, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  imports = [(import ./hardware-configuration.nix)]; 
+  imports = [inputs.hyprland.nixosModules.default] ++ [(import ./hardware-configuration.nix)];
 
   # Hyperland
-  # ++ (hyprland.nixosModules.default)
-  # From a VM (WLR_RENDERER_ALLOW_SOFTWARE=1 Hyprland)
-  #programs.hyprland.enable = true;
+  
+  # WLR_RENDERER_ALLOW_SOFTWARE=1 Hyprland
+  programs.hyprland.enable = true;
 
   # Docker
   virtualisation.docker = {
