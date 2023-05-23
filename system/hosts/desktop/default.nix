@@ -1,12 +1,55 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [inputs.hyprland.nixosModules.default] ++ [(import ./hardware-configuration.nix)];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  # Hyperland
-  
-  # WLR_RENDERER_ALLOW_SOFTWARE=1 Hyprland
-  programs.hyprland.enable = true;
+  # Gnome
+  services.xserver = {
+    enable = true;
+    
+    displayManager.gdm.enable = true;
+
+    desktopManager = {
+      gnome.enable = true;
+      xterm.enable = false;
+    };
+  };
+
+  environment.gnome.excludePackages = with pkgs; [
+    baobab            # disk usage analyzer
+    epiphany          # web browser
+    simple-scan       # document scanner
+    yelp              # help viewer
+    evince            # document viewer
+    # seahorse        # password manager
+
+    gnome.file-roller # archive manager
+    gnome.geary       # email client
+    gnome.totem       # video player
+    gnome.gedit       # text editor
+    gnome.cheese      # photo booth
+    gnome.eog         # image viewer
+
+    # gnome-calculator 
+    # gnome-calendar 
+    gnome.gnome-characters 
+    gnome.gnome-clocks 
+    gnome.gnome-contacts
+    gnome.gnome-font-viewer
+    gnome.gnome-maps 
+    gnome.gnome-music
+    gnome.gnome-system-monitor
+    gnome.gnome-weather
+    gnome.gnome-disk-utility
+    
+    gnome-tour
+    # gnome-logs 
+    gnome-photos 
+    # gnome-screenshot    
+    # gnome-connections
+  ];
 
   # Docker
   virtualisation.docker = {
@@ -19,10 +62,7 @@
 
   environment.systemPackages = with pkgs; [
     docker-compose
-    foot
   ];
-
-  environment.variables.TERMINAL = "foot";
 
   # Bluetooth
   hardware.bluetooth = {

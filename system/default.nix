@@ -3,7 +3,9 @@
 {
   imports = 
     (import ./shell) ++
-    [(import ./hosts/${hostname})];
+    [
+      ./hosts/${hostname}
+    ];
 
   users.users.${user} = {
     isNormalUser = true;
